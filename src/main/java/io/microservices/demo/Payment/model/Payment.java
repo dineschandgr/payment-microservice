@@ -1,6 +1,5 @@
-package io.microservices.demo.Product.model;
+package io.microservices.demo.Payment.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,37 +7,32 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="products")
-@Builder
+@Table(name = "payments")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Product {
+@Builder
+public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Integer id;
+    private Long id;
 
-    private  String product_Name;
-    private  String description;
-    private  double price;
-    private double gstPercentage;
+    private String transactionId;
 
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name="category_id",nullable = false)
-    private Category category;
-
-    @Transient
-    private Integer tempCategoryId;
+    private Integer orderId;
 
     private Long userId;
+
+    private String paymentMethod;
+
+    private Double totalAmountWithGST ;
+
 
 }

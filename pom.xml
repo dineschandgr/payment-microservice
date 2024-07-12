@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>io.microservices</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>payment-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>product-service</name>
-	<description>product-service</description>
+	<name>payment-service</name>
+	<description>payment-service</description>
 	<url/>
 	<licenses>
 		<license/>
