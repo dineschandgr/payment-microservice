@@ -14,14 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class PaymentController {
 
     @Autowired
-    private PaymentMessageProducer paymentMessageProducer;
+    private PaymentService paymentService;
 
     @PostMapping
-    public String testRabbitMQ() throws Exception {
-        paymentMessageProducer.sendMessage("connected to RabbitMQ!");
-        return "success";
+    public String createOrder(@RequestParam Long orderId, boolean fail) throws Exception {
+        Long userId = UserContext.getUserId();
+        return paymentService.completePayment(userId, orderId, fail);
     }
-
 
 }
 
