@@ -20,7 +20,7 @@ public class CommonService {
 
     public Order findOrderById(Long orderId) {
 
-        LOGGER.info("inside findUserById id : {} ",orderId);
+        LOGGER.info("inside findOrderById id : {} ",orderId);
 
         ResponseEntity<Order> response =
                 restTemplate.exchange(
